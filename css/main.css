@@ -6,8 +6,17 @@ html {
 
 *,
 *::before,
-*::after {
+::after {
   box-sizing: inherit;
+}
+
+.logo {
+  max-width: 14rem;
+  z-index: 1;
+  grid-row: 2;
+  display: flex;
+  margin: 2rem;
+  grid-column: 1;
 }
 
 img {
@@ -16,64 +25,40 @@ img {
 }
 
 header {
-  /* Remove the <header> box and allow us to directly apply header’s children to the grid. */
   display: contents;
   display: grid;
-  grid-column: 1 / -1;
-  grid-template-rows: 1fr;
-  grid-row: 1 / 2;
-  margin: 1rem 1rem 0;
+  grid-template-columns: 25% 25% 1fr;
+  grid-template-rows: 1fr 10rem;
 }
 
 body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0;
+  gap: 1rem;
   background-color: #f2f1ed;
+  margin: 0;
 }
 
-h1 {
-  grid-column: 1;
-  grid-row: 4;
-  z-index: 1;
-}
-
-.pano {
-  grid-column: 1 / -1;
-  grid-row: 1 / 2;
-}
-
-.logo {
-  width: 14rem;
-  z-index: 1;
-  grid-row: 1;
-}
-
-nav {
-  grid-column: 1;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 25% 25% 1fr;
-  grid-row: 1;
-}
-
-a {
+li {
+  list-style-type: none;
   font-size: 2rem;
-  color: #fff;
-}
-
-ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column: 3;
-  text-align: center;
+  font-family: "Patua One", sans-serif;
 }
 
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column: 1 / -1;
+  margin: 1rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-family: "Patua One", sans-serif;
+  color: #30658d;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
 }
 
 figure {
@@ -82,25 +67,44 @@ figure {
 
 figure:nth-child(1) {
   margin-right: .5rem;
-  margin-top: 1rem;
-  margin-left: 1rem;
 }
 
 figure:nth-child(2) {
   margin-left: .5rem;
+}
+
+.pano {
+  display: grid;
+  grid-column: 1/ -1;
+  grid-row: 1 / 4;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+a {
+  color: #fff;
+}
+
+nav {
+  grid-column: 3;
+  grid-row: 1;
   margin-top: 1rem;
-  margin-right: 1rem;
+  display: grid;
 }
 
-h2 {
-  color: #30658d;
-  margin-bottom: 0;
+ul {
+  display: grid;
+  grid-template-areas: "1 2 3";
 }
 
-p {
-  margin: 0;
+ul:nth-child(1) {
+  grid-area: 1;
 }
 
-a, h2 {
-  font-family: "Patua One", sans-serif;
+ul:nth-child(2) {
+  grid-area: 2;
+}
+
+ul:nth-child(3) {
+  grid-area: 3;
 }
